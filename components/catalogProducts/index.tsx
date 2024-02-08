@@ -29,18 +29,24 @@ const CatalogProducts = () => {
           <CardProduct key={i} product={product} />
         ))}
       </div>
-      <div className="flex justify-between items-center text-xs sm:text-sm">
-        <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
-          <GrFormPrevious />
-          <p>Sebelumnya</p>
-        </div>
-        <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
-          <p>Selanjutnya</p>
-          <GrFormNext />
-        </div>
-      </div>
+      <NextPrevious />
     </div>
   );
 };
 
 export default CatalogProducts;
+
+const NextPrevious = () => {
+  return (
+    <div className="flex justify-between items-center text-xs sm:text-sm">
+      <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
+        <GrFormPrevious />
+        <p>Sebelumnya</p>
+      </div>
+      <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
+        <p>Selanjutnya</p>
+        <GrFormNext />
+      </div>
+    </div>
+  );
+};
