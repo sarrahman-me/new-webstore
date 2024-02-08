@@ -16,7 +16,11 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body id="root">{children}</body>
+      <body id="root">
+        <div className="bg-gradient-to-t from-slate-50 via-slate-100 to-slate-200 dark:from-slate-800  dark:to-slate-900 text-black dark:text-white min-h-screen">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

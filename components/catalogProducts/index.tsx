@@ -7,7 +7,7 @@ import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 const CatalogProducts = () => {
   const { data, error, isLoading } = useSWR(
-    "https://api.tokokeramik.com/products/barang?limit=48&minstok=25",
+    `${process.env.NEXT_PUBLIC_HOST}/products/barang?limit=48&minstok=25`,
     fetcher
   );
 
@@ -24,7 +24,7 @@ const CatalogProducts = () => {
   return (
     <div className="space-y-2">
       <p className="font-semibold underline">Semua Barang</p>
-      <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-1 md:gap-2">
+      <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-2">
         {products.map((product, i) => (
           <CardProduct key={i} product={product} />
         ))}

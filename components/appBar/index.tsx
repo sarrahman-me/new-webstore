@@ -1,10 +1,20 @@
+"use client";
 import { AiOutlineLike, AiOutlineSearch } from "react-icons/ai";
-import { IoLogoGoogle } from "react-icons/io";
+import { IoLogoGoogle, IoMdArrowBack } from "react-icons/io";
 import { ToggleDarkMode } from "..";
+import { useRouter } from "next/navigation";
 
-const AppBar = () => {
+const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
+  const router = useRouter();
+
   return (
     <div className="flex justify-between items-center sticky top-0 z-50 bg-slate-200 dark:bg-slate-900 p-2 md:p-4">
+      {arrowBack && (
+        <IoMdArrowBack
+          onClick={() => router.back()}
+          className="cursor-pointer text-xl"
+        />
+      )}
       <LogoCompany />
       <div className="flex items-center space-x-2">
         <Searchbox />
@@ -35,7 +45,7 @@ const Searchbox = () => {
       <input
         type="text"
         placeholder="Cari Sesuatu ..."
-        className="pl-10 p-1 bg-white border-slate-600 dark:bg-slate-700 rounded-md border-2 focus:ring-slate-500 focus:border-slate-500 outline-none sm:min-w-96"
+        className="pl-10 p-1 bg-white border-slate-600 dark:bg-slate-700 rounded-md border focus:ring-slate-500 focus:border-slate-500 outline-none sm:min-w-72"
       />
     </div>
   );

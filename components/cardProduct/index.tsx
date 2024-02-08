@@ -1,10 +1,16 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import productDTO from "@/interface/product";
 import isNewProduct from "@/utils/isNew";
+import { useRouter } from "next/navigation";
 
 const CardProduct = ({ product }: { product: productDTO }) => {
+  const router = useRouter();
   return (
-    <div className="rounded bg-white dark:bg-slate-900 dark:border border-slate-500 text-xs md:text-sm">
+    <div
+      onClick={() => router.push(`/barang/${product.slug}`)}
+      className="rounded bg-white dark:bg-slate-900 dark:border border-slate-500 text-xs md:text-sm cursor-pointer"
+    >
       <ImageProduct product={product} />
       <div className="p-1 sm:p-1.5 md:p-2 space-y-1">
         <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400">
