@@ -4,7 +4,11 @@ import productDTO from "@/interface/product";
 const DetailProduct = ({ product }: { product: productDTO }) => {
   return (
     <div>
-      <ImageProduct product={product} />
+      {product.images[1] ? (
+        <ImageProductWithPreview product={product} />
+      ) : (
+        <ImageProduct product={product} />
+      )}
       <div className="space-y-2 p-2 md:p-4 bg-white dark:bg-slate-800 border-b dark:border-slate-500 rounded-b-md">
         <p className="text-lg md:text-xl font-medium">
           {product.nama_barang}{" "}
@@ -29,7 +33,7 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
 
 export default DetailProduct;
 
-const ImageProduct = ({ product }: { product: productDTO }) => {
+const ImageProductWithPreview = ({ product }: { product: productDTO }) => {
   return (
     <div className="relative">
       <img
@@ -47,6 +51,22 @@ const ImageProduct = ({ product }: { product: productDTO }) => {
           alt={product.slug}
         />
       </div>
+    </div>
+  );
+};
+
+const ImageProduct = ({ product }: { product: productDTO }) => {
+  return (
+    <div className="flex justify-center my-2">
+      <img
+        src={
+          product.images[0] ||
+          "https://ik.imagekit.io/sarrahmanme/No-Image-Placeholder.svg.png?updatedAt=1701908821050"
+        }
+        alt={product.slug}
+        width={250}
+        height={250}
+      />
     </div>
   );
 };
