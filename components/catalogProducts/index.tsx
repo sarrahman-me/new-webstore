@@ -1,11 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import useSWR from "swr";
 import { fetcher } from "@/utils";
 import productDTO from "@/interface/product";
+import CardProduct from "../cardProduct";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 const CatalogProducts = () => {
-  const { data, error, isLoading }: any = useSWR(
+  const { data, error, isLoading } = useSWR(
     "https://api.tokokeramik.com/products/barang?limit=48&minstok=25",
     fetcher
   );
@@ -28,40 +29,18 @@ const CatalogProducts = () => {
           <CardProduct key={i} product={product} />
         ))}
       </div>
+      <div className="flex justify-between items-center">
+        <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
+          <GrFormPrevious />
+          <p>Sebelumnya</p>
+        </div>
+        <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
+          <p>Selanjutnya</p>
+          <GrFormNext />
+        </div>
+      </div>
     </div>
   );
 };
 
 export default CatalogProducts;
-
-const CardProduct = ({ product }: { product: productDTO }) => {
-  return (
-    <div className="rounded bg-white text-xs md:text-sm">
-      <div className="relative">
-        <img className="" src={product.images[0]} alt={product.nama_barang} />
-        <p className="absolute bottom-0 left-0 p-0.5 text-white bg-black bg-opacity-50 text-xs rounded-sm">
-          {product.ukuran}
-        </p>
-      </div>
-      <div className="p-1 sm:p-1.5 md:p-2 space-y-1">
-        <p className="text-xs md:text-sm text-slate-500">
-          {product.kategori} {product.tekstur}
-        </p>
-        <p className="text-xs md:text-sm">{product.nama_barang}</p>
-        <p
-          className={`text-xs md:text-sm ${
-            product.stok > 500
-              ? "text-green-500"
-              : product.stok < 50
-              ? "text-orange-500"
-              : product.stok < 15
-              ? "text-red-500"
-              : ""
-          }`}
-        >
-          {product.stok} Dus
-        </p>
-      </div>
-    </div>
-  );
-};

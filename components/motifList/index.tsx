@@ -23,9 +23,9 @@ export default MotifList;
 
 const MotifIcon = ({ icon, title }: { icon: any; title: string }) => {
   return (
-    <div className="rounded-md bg-white p-3 flex justify-center border">
+    <div className="rounded-md bg-white dark:bg-slate-800 p-3 flex justify-center border border-slate-500">
       <div className="flex items-center space-x-2">
-        <span className="text-slate-500 text-lg md:text-xl">{icon}</span>
+        <span className="text-slate-600 dark:text-slate-300 text-lg md:text-xl">{icon}</span>
         <p className="text-nowrap font-medium text-base">{title}</p>
       </div>
     </div>

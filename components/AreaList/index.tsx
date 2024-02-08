@@ -55,7 +55,7 @@ const AreaImage = ({
 }) => {
   return (
     <img
-      className="h-32 w-56 md:h-36 md:w-60 rounded-md"
+      className="h-32 w-56 md:h-36 md:w-60 rounded-md border dark:border-slate-500"
       src={imageUrl}
       alt={title}
     />
