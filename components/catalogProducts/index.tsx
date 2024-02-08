@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const CatalogProducts = () => {
   const params = useSearchParams();
-  let page = params.get("page");
+  let page = params.get("page") || 1;
   const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_HOST}/products/barang?page=${page}&limit=48&minstok=25`,
     fetcher
