@@ -34,11 +34,18 @@ const ImageProduct = ({ product }: { product: productDTO }) => {
     <div className="relative">
       <img
         className="w-full max-h-96 object-cover object-bottom rounded-t-md"
-        src="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/photo-1602028915047-37269d1a73f7.avif"
+        src={product.images[1] || "https://placehold.co/600x400"}
         alt={product.nama_barang}
       />
       <div className="absolute bottom-0 right-5 border shadow-lg shadow-slate-400 dark:shadow-slate-600">
-        <img className="h-32 w-32" src={product.images[0]} alt={product.slug} />
+        <img
+          className="h-32 w-32"
+          src={
+            product.images[0] ||
+            "https://ik.imagekit.io/sarrahmanme/No-Image-Placeholder.svg.png?updatedAt=1701908821050"
+          }
+          alt={product.slug}
+        />
       </div>
     </div>
   );
