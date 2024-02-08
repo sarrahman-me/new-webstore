@@ -21,7 +21,7 @@ const AppBar = () => {
               className="pl-10 p-1 bg-white border-slate-600 dark:bg-slate-700 rounded-md border-2 focus:ring-slate-500 focus:border-slate-500 outline-none sm:min-w-96"
             />
           </div>
-          <div className="border-2 border-slate-500 rounded-md bg-slate-50 dark:bg-slate-700 flex items-center p-1 space-x-1">
+          <div className="border border-slate-500 rounded-md bg-slate-50 dark:bg-slate-700 flex items-center p-1 space-x-1">
             <AiOutlineLike className="text-xl md:text-2xl" />
             <span>0</span>
           </div>

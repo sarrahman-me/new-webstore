@@ -29,7 +29,7 @@ const CatalogProducts = () => {
           <CardProduct key={i} product={product} />
         ))}
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center text-xs sm:text-sm">
         <div className="flex items-center bg-white dark:bg-slate-800 rounded p-1 px-2">
           <GrFormPrevious />
           <p>Sebelumnya</p>

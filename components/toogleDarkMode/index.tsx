@@ -40,7 +40,7 @@ export default function ToggleDarkMode() {
     <div>
       <button
         onClick={toggleDarkMode}
-        className="flex items-center border-2 gap-2 p-2 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-1 border-slate-500 bg-slate-50 dark:bg-slate-700"
+        className="flex items-center border gap-2 p-2 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-1 border-slate-500 bg-slate-50 dark:bg-slate-700"
       >
         <span
           className={`transform transition-transform duration-100 ${
