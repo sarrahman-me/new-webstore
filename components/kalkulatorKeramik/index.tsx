@@ -40,7 +40,7 @@ const KalkulatorKeramik = ({ ukuranKeramik }: { ukuranKeramik: string }) => {
   return (
     <div className="space-y-2 border bg-white dark:bg-slate-800 rounded-md dark:border-slate-500 p-2 md:p-4">
       <p className="font-semibold underline">Hitung Keperluan keramik</p>
-      <form onSubmit={handleHitung} action="" className="space-y-2">
+      <form onSubmit={handleHitung} action="" className="space-y-3 md:space-y-5">
         <Textfield
           onChange={(value) => setPanjang(value)}
           placeholder="Panjang Ruangan"
