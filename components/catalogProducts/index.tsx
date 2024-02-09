@@ -70,21 +70,47 @@ const NextPrevious = ({ metadata }: { metadata: metadataProduct }) => {
 
   return (
     <div className="flex justify-between items-center text-xs sm:text-sm">
-      <div
-        onClick={handlePrevPage}
-        className="flex items-center bg-white dark:bg-slate-800 rounded p-2"
-      >
-        <GrFormPrevious />
-        <p>Sebelumnya</p>
-      </div>
-      {currentPage}
-      <div
-        onClick={handleNextPage}
-        className="flex items-center bg-white dark:bg-slate-800 rounded p-2"
-      >
-        <p>Selanjutnya</p>
-        <GrFormNext />
-      </div>
+      <ButtonArrow
+        icon={<GrFormPrevious />}
+        handleButton={handlePrevPage}
+        disabled={currentPage === 1}
+        title={"Sebelumnya"}
+        iconPostition="left"
+      />
+      <ButtonArrow
+        icon={<GrFormNext />}
+        handleButton={handleNextPage}
+        disabled={currentPage === metadata?.totalPages}
+        title={"Selanjutnya"}
+        iconPostition="right"
+      />
     </div>
+  );
+};
+
+const ButtonArrow = ({
+  icon,
+  handleButton,
+  disabled,
+  title,
+  iconPostition,
+}: {
+  icon: any;
+  handleButton: () => void;
+  disabled: boolean;
+  title: string;
+  iconPostition: "right" | "left";
+}) => {
+  return (
+    <button
+      disabled={disabled}
+      onClick={handleButton}
+      className={`flex ${
+        iconPostition === "right" ? "flex-row" : "flex-row-reverse"
+      } items-center border dark:border-slate-500 disabled:border-none bg-white dark:bg-slate-700 rounded p-2 cursor-pointer disabled:bg-gray-300 disabled:cursor-not-allowed`}
+    >
+      <p>{title}</p>
+      {icon}
+    </button>
   );
 };

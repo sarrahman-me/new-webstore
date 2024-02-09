@@ -10,19 +10,19 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
         <ImageProduct product={product} />
       )}
       <div className="space-y-2 p-2 md:p-4 bg-white dark:bg-slate-800 border-b dark:border-slate-500 rounded-b-md">
-        <p className="text-lg md:text-xl font-medium">
+        <p className="text-lg md:text-xl font-semibold">
           {product.nama_barang}{" "}
           {product.warna?.replace(/\([^)]*\)/g, "").trim()}
         </p>
-        <p className="text-sm md:text-base">
+        <p className="text-sm md:text-base font-medium">
           Stok: {product.stok} Dus <sup>*</sup>
         </p>
-        <p className="text-sm md:text-base">Brand: {product.brand}</p>
-        <p className="text-sm md:text-base">Kategori: {product.kategori}</p>
-        <p className="text-sm md:text-base">Ukuran: {product.ukuran}</p>
-        <p className="text-sm md:text-base">Motif: {product.motif}</p>
-        <p className="text-sm md:text-base">Tekstur: {product.tekstur}</p>
-        <p className="text-sm md:text-base">Kualitas: {product.kualitas}</p>
+        <p className="text-sm md:text-base font-medium">Brand: {product.brand}</p>
+        <p className="text-sm md:text-base font-medium">Kategori: {product.kategori}</p>
+        <p className="text-sm md:text-base font-medium">Ukuran: {product.ukuran}</p>
+        <p className="text-sm md:text-base font-medium">Motif: {product.motif}</p>
+        <p className="text-sm md:text-base font-medium">Tekstur: {product.tekstur}</p>
+        <p className="text-sm md:text-base font-medium">Kualitas: {product.kualitas}</p>
         <p className="text-xs text-slate-500">
           <sup>*</sup> Stok dapat berubah setiap saat
         </p>
@@ -59,6 +59,7 @@ const ImageProduct = ({ product }: { product: productDTO }) => {
   return (
     <div className="flex justify-center my-2">
       <img
+        className="border"
         src={
           product.images[0] ||
           "https://ik.imagekit.io/sarrahmanme/No-Image-Placeholder.svg.png?updatedAt=1701908821050"
