@@ -3,6 +3,7 @@ import { AiOutlineLike, AiOutlineSearch } from "react-icons/ai";
 import { IoLogoGoogle, IoMdArrowBack } from "react-icons/io";
 import { ToggleDarkMode } from "..";
 import { useRouter } from "next/navigation";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
   const router = useRouter();
@@ -42,17 +43,29 @@ const LogoCompany = () => {
 };
 
 const Searchbox = () => {
+  const router = useRouter();
+  const [query, setQuery] = useState<string>("");
+
+  const handleSerch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    router.push(`/barang/pencarian?query=${query}`);
+  };
+
   return (
-    <div className="relative hidden md:flex">
+    <form onSubmit={handleSerch} className="relative hidden md:flex">
       <span className="absolute inset-y-0 left-0 flex items-center pl-3">
         <AiOutlineSearch />
       </span>
       <input
         type="text"
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setQuery(e.target.value)
+        }
         placeholder="Cari Sesuatu ..."
         className="pl-10 p-1 bg-white border-slate-600 dark:bg-slate-700 rounded-md border focus:ring-slate-500 focus:border-slate-500 outline-none sm:min-w-72"
       />
-    </div>
+    </form>
   );
 };
 

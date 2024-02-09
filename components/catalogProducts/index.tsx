@@ -15,6 +15,8 @@ const CatalogProducts = ({
   hiddenInLimit = 1,
   minstok = 25,
   limit = 48,
+  productReplace,
+  hiddenIfNotFound,
 }: {
   pagination?: boolean;
   atribut?: string;
@@ -23,6 +25,8 @@ const CatalogProducts = ({
   hiddenInLimit?: number;
   minstok?: number;
   limit?: number;
+  productReplace?: productDTO[];
+  hiddenIfNotFound?: boolean;
 }) => {
   const params = useSearchParams();
   let page = params.get("page") || 1;
@@ -39,12 +43,14 @@ const CatalogProducts = ({
     return <p>Error Fetch Products</p>;
   }
 
-  const products: productDTO[] = data.data;
+  const products: productDTO[] = productReplace || data.data;
   const metadata: metadataProduct = data.metadata;
 
   return (
     <div
-      className={`space-y-2 ${products.length < hiddenInLimit ? "hidden" : ""}`}
+      className={`space-y-2 ${
+        products.length < hiddenInLimit && hiddenIfNotFound ? "hidden" : ""
+      }`}
     >
       <p className="font-semibold underline">{title || "Semua Barang"}</p>
       <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-2">
@@ -52,7 +58,7 @@ const CatalogProducts = ({
           <CardProduct key={i} product={product} />
         ))}
       </div>
-      {pagination && <NextPrevious metadata={metadata} />}
+      {pagination && !productReplace && <NextPrevious metadata={metadata} />}
     </div>
   );
 };

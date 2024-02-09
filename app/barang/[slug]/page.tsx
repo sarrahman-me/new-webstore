@@ -60,6 +60,7 @@ export default function DetailProductPage({
         <CatalogProducts
           minstok={0}
           hiddenInLimit={2}
+          hiddenIfNotFound
           title="Warna Lainnya"
           pagination={false}
           atribut={`nama=${products.nama_barang}&brand=${products.brand}&ukuran=${products.ukuran}`}
@@ -68,6 +69,8 @@ export default function DetailProductPage({
         {/* catalog produk rekomendasi */}
         <CatalogProducts
           limit={96}
+          hiddenIfNotFound
+          hiddenInLimit={2}
           title="Rekomendasi"
           pagination={false}
           atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
