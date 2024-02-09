@@ -28,8 +28,13 @@ const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
 export default AppBar;
 
 const LogoCompany = () => {
+  const router = useRouter();
+
   return (
-    <div className="flex items-center space-x-1 md:space-x-2">
+    <div
+      onClick={() => router.push("/")}
+      className="flex items-center space-x-1 md:space-x-2 cursor-pointer"
+    >
       <IoLogoGoogle className="text-lg md:text-2xl" />
       <p className="font-bold md:text-lg">Tester Webstore Mitra</p>
     </div>

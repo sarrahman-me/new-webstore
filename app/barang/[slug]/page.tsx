@@ -55,22 +55,24 @@ export default function DetailProductPage({
         </button>
       </div>
 
-      {/* catalog produk warna lainnya */}
-      <CatalogProducts
-        minstok={0}
-        hiddenInLimit={2}
-        title="Warna Lainnya"
-        pagination={false}
-        atribut={`nama=${products.nama_barang}&brand=${products.brand}&ukuran=${products.ukuran}`}
-      />
+      <div className="space-y-6 md:space-y-8">
+        {/* catalog produk warna lainnya */}
+        <CatalogProducts
+          minstok={0}
+          hiddenInLimit={2}
+          title="Warna Lainnya"
+          pagination={false}
+          atribut={`nama=${products.nama_barang}&brand=${products.brand}&ukuran=${products.ukuran}`}
+        />
 
-      {/* catalog produk rekomendasi */}
-      <CatalogProducts
-        limit={96}
-        title="Rekomendasi"
-        pagination={false}
-        atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
-      />
+        {/* catalog produk rekomendasi */}
+        <CatalogProducts
+          limit={96}
+          title="Rekomendasi"
+          pagination={false}
+          atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
+        />
+      </div>
       <div className="text-center text-xs text-slate-500 py-10">
         <p>Disupport oleh Toko Keramik Indonesia</p>
       </div>
