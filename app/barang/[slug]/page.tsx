@@ -53,22 +53,24 @@ export default function DetailProductPage({
           <IoLogoWhatsapp className="text-lg mr-2" />
           Whatsapp
         </button>
-
-        {/* catalog produk warna lainnya */}
-        <CatalogProducts
-          hiddenInLimit={2}
-          title="Warna Lainnya"
-          pagination={false}
-          atribut={`nama=${products.nama_barang}&brand=${products.brand}&ukuran=${products.ukuran}`}
-        />
-
-        {/* catalog produk rekomendasi */}
-        <CatalogProducts
-          title="Rekomendasi"
-          pagination={false}
-          atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
-        />
       </div>
+
+      {/* catalog produk warna lainnya */}
+      <CatalogProducts
+        minstok={0}
+        hiddenInLimit={2}
+        title="Warna Lainnya"
+        pagination={false}
+        atribut={`nama=${products.nama_barang}&brand=${products.brand}&ukuran=${products.ukuran}`}
+      />
+
+      {/* catalog produk rekomendasi */}
+      <CatalogProducts
+        limit={96}
+        title="Rekomendasi"
+        pagination={false}
+        atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
+      />
       <div className="text-center text-xs text-slate-500 py-10">
         <p>Disupport oleh Toko Keramik Indonesia</p>
       </div>

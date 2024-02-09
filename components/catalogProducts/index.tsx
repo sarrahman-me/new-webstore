@@ -13,17 +13,21 @@ const CatalogProducts = ({
   atribut,
   title,
   hiddenInLimit = 1,
+  minstok = 25,
+  limit = 48,
 }: {
   pagination?: boolean;
   atribut?: string;
   title?: string;
   // hiddenInLimit adalah angka dimana jika angka itu lebih kecil dengan jumlah barang maka component ini akan  hilang
   hiddenInLimit?: number;
+  minstok?: number;
+  limit?: number;
 }) => {
   const params = useSearchParams();
   let page = params.get("page") || 1;
   const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_HOST}/products/barang?page=${page}&limit=48&minstok=25&${atribut}`,
+    `${process.env.NEXT_PUBLIC_HOST}/products/barang?page=${page}&limit=${limit}&minstok=${minstok}&${atribut}`,
     fetcher
   );
 

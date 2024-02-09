@@ -39,7 +39,7 @@ const KalkulatorKeramik = ({ ukuranKeramik }: { ukuranKeramik: string }) => {
 
   return (
     <div className="space-y-2 border bg-white dark:bg-slate-800 rounded-md dark:border-slate-500 p-2 md:p-4">
-      <p className="font-semibold underline">Hitung Keperluan keramik ini</p>
+      <p className="font-semibold underline">Hitung Keperluan keramik</p>
       <form onSubmit={handleHitung} action="" className="space-y-2">
         <Textfield
           onChange={(value) => setPanjang(value)}
@@ -59,7 +59,7 @@ const KalkulatorKeramik = ({ ukuranKeramik }: { ukuranKeramik: string }) => {
         )}
         <button
           type="submit"
-          className="bg-slate-800 dark:bg-slate-200 text-white dark:text-black p-1 px-2 rounded-md"
+          className="w-full bg-slate-800 dark:bg-slate-200 text-white dark:text-black p-1 px-2 rounded-md"
         >
           Hitung
         </button>
