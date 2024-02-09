@@ -27,19 +27,12 @@ const KalkulatorKeramik = ({ ukuranKeramik }: { ukuranKeramik: string }) => {
   const [panjang, setPanjang] = useState<number>(0);
   const [lebar, setLebar] = useState<number>(0);
   const [tinggi, setTinggi] = useState<number>(0);
-  const [sisi, setSisi] = useState<number>(0);
   const [result, setResult] = useState<resultInterface>();
 
   const handleHitung = (e: any) => {
     e.preventDefault();
 
-    const result = RumusHitungKeramik(
-      ukuranKeramik,
-      panjang,
-      lebar,
-      tinggi,
-      sisi
-    );
+    const result = RumusHitungKeramik(ukuranKeramik, panjang, lebar, tinggi);
 
     setResult(result);
   };
@@ -61,10 +54,6 @@ const KalkulatorKeramik = ({ ukuranKeramik }: { ukuranKeramik: string }) => {
             <Textfield
               onChange={(value) => setTinggi(value)}
               placeholder="Tinggi Ruangan"
-            />
-            <Textfield
-              onChange={(value) => setSisi(value)}
-              placeholder="Jumlah Sisi Ruangan"
             />
           </>
         )}
@@ -101,6 +90,16 @@ const ResultComp = ({ result }: { result: resultInterface }) => {
       <p className="text-sm md:text-base font-medium">
         Lembar Per Dus: {result.lembar_per_dus}
       </p>
+      <p className="text-xs text-orange-500">
+        Catatan : Lembar keramik per dus di ambil dari lembar keramik rata rata
+        di ukuran tersebut dan tidak menentukan isi dari keramik yang kamu lihat
+      </p>
+      {isDinding(result.ukuran_keramik) && (
+        <p className="text-xs text-orange-500">
+          Catatan : Perhitungan ini mengasumsikan jika ruangan memiliki 4 sisi
+          yang akan di pasang keramik
+        </p>
+      )}
     </div>
   );
 };
@@ -130,13 +129,16 @@ const RumusHitungKeramik = (
   ukuranKeramik: string,
   panjang: number,
   lebar: number,
-  tinggi: number,
-  sisi: number
+  tinggi: number
 ) => {
   if (isDinding(ukuranKeramik)) {
     // rumus penghitung keramik dinding
 
-    const diameter_ruang = panjang * lebar;
+    // rumus asumsi ruangan memiliki 4 sisi
+    const diameter_ruang =
+      (Number(panjang) + Number(panjang) + Number(lebar) + Number(lebar)) *
+      Number(tinggi);
+
     const diameter_keramik =
       (parseInt(ukuranKeramik.split("x")[0]) / 100) *
       (parseInt(ukuranKeramik.split("x")[1]) / 100) *
@@ -151,7 +153,7 @@ const RumusHitungKeramik = (
     };
   } else {
     // rumus penghitung keramik lantai
-    const diameter_ruang = panjang * lebar;
+    const diameter_ruang = Number(panjang) * Number(lebar);
     const diameter_keramik =
       (parseInt(ukuranKeramik.split("x")[0]) / 100) *
       (parseInt(ukuranKeramik.split("x")[1]) / 100) *
