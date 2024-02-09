@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import useSWR from "swr";
 import { fetcher } from "@/utils";
@@ -45,6 +46,22 @@ const CatalogProducts = ({
 
   const products: productDTO[] = productReplace || data.data;
   const metadata: metadataProduct = data.metadata;
+
+  if (products.length === 0) {
+    return (
+      <div className="flex items-center justify-center">
+        <div>
+          <p className="md:text-xl text-center font-bold">
+            Produk Tidak Ditemukan
+          </p>
+          <img
+            src="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/9169253-removebg-preview.png"
+            alt="notfound"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
