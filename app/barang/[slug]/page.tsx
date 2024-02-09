@@ -55,7 +55,7 @@ export default function DetailProductPage({
         </button>
       </div>
 
-      <div className="space-y-6 md:space-y-8">
+      <div className="space-y-6 md:space-y-8 p-2 md:p-4">
         {/* catalog produk warna lainnya */}
         <CatalogProducts
           minstok={0}
