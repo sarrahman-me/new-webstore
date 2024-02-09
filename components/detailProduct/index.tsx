@@ -23,7 +23,7 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
         <p className="text-sm md:text-base font-medium">Motif: {product.motif}</p>
         <p className="text-sm md:text-base font-medium">Tekstur: {product.tekstur}</p>
         <p className="text-sm md:text-base font-medium">Kualitas: {product.kualitas}</p>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-orange-500">
           <sup>*</sup> Stok dapat berubah setiap saat
         </p>
       </div>

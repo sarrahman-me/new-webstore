@@ -8,11 +8,22 @@ import { useRouter, useSearchParams } from "next/navigation";
 import metadataProduct from "@/interface/metadataProduct";
 import { useState } from "react";
 
-const CatalogProducts = () => {
+const CatalogProducts = ({
+  pagination = true,
+  atribut,
+  title,
+  hiddenInLimit = 1,
+}: {
+  pagination?: boolean;
+  atribut?: string;
+  title?: string;
+  // hiddenInLimit adalah angka dimana jika angka itu lebih kecil dengan jumlah barang maka component ini akan  hilang
+  hiddenInLimit?: number;
+}) => {
   const params = useSearchParams();
   let page = params.get("page") || 1;
   const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_HOST}/products/barang?page=${page}&limit=48&minstok=25`,
+    `${process.env.NEXT_PUBLIC_HOST}/products/barang?page=${page}&limit=48&minstok=25&${atribut}`,
     fetcher
   );
 
@@ -28,14 +39,16 @@ const CatalogProducts = () => {
   const metadata: metadataProduct = data.metadata;
 
   return (
-    <div className="space-y-2">
-      <p className="font-semibold underline">Semua Barang</p>
+    <div
+      className={`space-y-2 ${products.length < hiddenInLimit ? "hidden" : ""}`}
+    >
+      <p className="font-semibold underline">{title || "Semua Barang"}</p>
       <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-2">
         {products.map((product, i) => (
           <CardProduct key={i} product={product} />
         ))}
       </div>
-      <NextPrevious metadata={metadata} />
+      {pagination && <NextPrevious metadata={metadata} />}
     </div>
   );
 };

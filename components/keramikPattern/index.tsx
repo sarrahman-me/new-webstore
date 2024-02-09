@@ -31,7 +31,10 @@ export default function KeramikPattern({ imageUrl }: { imageUrl: string }) {
 const ImagePattern = ({ imageUrl }: { imageUrl: string }) => {
   return (
     <img
-      src={imageUrl}
+      src={
+        imageUrl ||
+        "https://ik.imagekit.io/sarrahmanme/No-Image-Placeholder.svg.png?updatedAt=1701908821050"
+      }
       onClick={(e) => {
         const img = e.target as HTMLImageElement;
         const deg = img.style.transform

@@ -1,7 +1,9 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
+import { IoLogoWhatsapp } from "react-icons/io";
 import {
   AppBar,
+  CatalogProducts,
   DetailProduct,
   KalkulatorKeramik,
   KeramikPattern,
@@ -34,7 +36,7 @@ export default function DetailProductPage({
   return (
     <main>
       <AppBar arrowBack />
-      <div className="max-w-3xl mx-auto space-y-6 md:space-y-10 p-2 md:p-4">
+      <div className="max-w-3xl mx-auto space-y-6 md:space-y-8 p-2 md:p-4">
         <SearchBar />
 
         {/* detail product */}
@@ -45,6 +47,27 @@ export default function DetailProductPage({
 
         {/* Kalkulator Keramik */}
         <KalkulatorKeramik ukuranKeramik={products.ukuran} />
+
+        {/* Tombol Pesan */}
+        <button className="flex items-center justify-center p-1 px-2 bg-green-500 text-white w-full rounded-md">
+          <IoLogoWhatsapp className="text-lg mr-2" />
+          Whatsapp
+        </button>
+
+        {/* catalog produk warna lainnya */}
+        <CatalogProducts
+          hiddenInLimit={2}
+          title="Warna Lainnya"
+          pagination={false}
+          atribut={`nama=${products.nama_barang}&brand=${products.brand}&ukuran=${products.ukuran}`}
+        />
+
+        {/* catalog produk rekomendasi */}
+        <CatalogProducts
+          title="Rekomendasi"
+          pagination={false}
+          atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
+        />
       </div>
       <div className="text-center text-xs text-slate-500 py-10">
         <p>Disupport oleh Toko Keramik Indonesia</p>
