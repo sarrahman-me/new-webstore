@@ -17,12 +17,24 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
         <p className="text-sm md:text-base font-medium">
           Stok: {product.stok} Dus <sup>*</sup>
         </p>
-        <p className="text-sm md:text-base font-medium">Brand: {product.brand}</p>
-        <p className="text-sm md:text-base font-medium">Kategori: {product.kategori}</p>
-        <p className="text-sm md:text-base font-medium">Ukuran: {product.ukuran}</p>
-        <p className="text-sm md:text-base font-medium">Motif: {product.motif}</p>
-        <p className="text-sm md:text-base font-medium">Tekstur: {product.tekstur}</p>
-        <p className="text-sm md:text-base font-medium">Kualitas: {product.kualitas}</p>
+        <p className="text-sm md:text-base font-medium">
+          Brand: {product.brand}
+        </p>
+        <p className="text-sm md:text-base font-medium">
+          Kategori: {product.kategori}
+        </p>
+        <p className="text-sm md:text-base font-medium">
+          Ukuran: {product.ukuran}
+        </p>
+        <p className="text-sm md:text-base font-medium">
+          Motif: {product.motif}
+        </p>
+        <p className="text-sm md:text-base font-medium">
+          Tekstur: {product.tekstur}
+        </p>
+        <p className="text-sm md:text-base font-medium">
+          Kualitas: {product.kualitas}
+        </p>
         <p className="text-xs text-orange-500">
           <sup>*</sup> Stok dapat berubah setiap saat
         </p>
@@ -43,7 +55,7 @@ const ImageProductWithPreview = ({ product }: { product: productDTO }) => {
       />
       <div className="absolute bottom-0 right-5 border shadow-lg shadow-slate-400 dark:shadow-slate-600">
         <img
-          className="h-32 w-32"
+          className="max-h-28 sm:max-h-48"
           src={
             product.images[0] ||
             "https://ik.imagekit.io/sarrahmanme/No-Image-Placeholder.svg.png?updatedAt=1701908821050"
