@@ -1,6 +1,12 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { AppBar, DetailProduct, KeramikPattern, SearchBar } from "@/components";
+import {
+  AppBar,
+  DetailProduct,
+  KalkulatorKeramik,
+  KeramikPattern,
+  SearchBar,
+} from "@/components";
 import productDTO from "@/interface/product";
 import { fetcher } from "@/utils";
 import useSWR from "swr";
@@ -36,6 +42,9 @@ export default function DetailProductPage({
 
         {/* keramik Patten Simulation */}
         <KeramikPattern imageUrl={products.images[0]} />
+
+        {/* Kalkulator Keramik */}
+        <KalkulatorKeramik ukuranKeramik={products.ukuran} />
       </div>
       <div className="text-center text-xs text-slate-500 py-10">
         <p>Disupport oleh Toko Keramik Indonesia</p>
