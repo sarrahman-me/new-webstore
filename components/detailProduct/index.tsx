@@ -1,4 +1,5 @@
 import productDTO from "@/interface/product";
+import ButtonLike from "../buttonLike";
 
 /* eslint-disable @next/next/no-img-element */
 const DetailProduct = ({ product }: { product: productDTO }) => {
@@ -35,9 +36,12 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
         <p className="text-sm md:text-base font-medium">
           Kualitas: {product.kualitas}
         </p>
-        <p className="text-xs text-orange-500">
-          <sup>*</sup> Stok dapat berubah setiap saat
-        </p>
+        <div className="flex justify-between items-center">
+          <p className="text-xs text-orange-500">
+            <sup>*</sup> Stok dapat berubah setiap saat
+          </p>
+          <ButtonLike slug={product.slug} />
+        </div>
       </div>
     </div>
   );

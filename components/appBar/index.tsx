@@ -3,7 +3,9 @@ import { AiOutlineLike, AiOutlineSearch } from "react-icons/ai";
 import { IoLogoGoogle, IoMdArrowBack } from "react-icons/io";
 import { ToggleDarkMode } from "..";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setWishlistCount } from "@/redux/slice/wishlist";
 
 const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
   const router = useRouter();
@@ -70,10 +72,25 @@ const Searchbox = () => {
 };
 
 const LikeIcon = () => {
+  const dispatch = useDispatch();
+  const { wishlistCount } = useSelector((state: any) => state.wishlist);
+  
+  useEffect(() => {
+    const chechIsLiked = () => {
+      const existingFavorites: string[] = JSON.parse(
+        window.localStorage.getItem("favoriteProduct") || "[]"
+      );
+
+      dispatch(setWishlistCount(existingFavorites.length));
+    };
+
+    chechIsLiked();
+  }, [dispatch]);
+
   return (
     <div className="border border-slate-500 rounded-md bg-slate-50 dark:bg-slate-700 flex items-center p-1 space-x-1">
       <AiOutlineLike className="text-xl md:text-2xl" />
-      <span>0</span>
+      <span className="text-sm md:text-base">{wishlistCount || 0}</span>
     </div>
   );
 };
