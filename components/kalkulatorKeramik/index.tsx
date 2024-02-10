@@ -130,7 +130,7 @@ const Textfield = ({
         type="text"
       />
       <p className="text-xs text-gray-500">
-        Gunakan titik jika decimal misalnya 2.5
+        Gunakan titik jika desimal misalnya 2.5
       </p>
     </div>
   );

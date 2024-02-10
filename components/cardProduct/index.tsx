@@ -6,9 +6,34 @@ import { useRouter } from "next/navigation";
 
 const CardProduct = ({ product }: { product: productDTO }) => {
   const router = useRouter();
+
+  const handleTrack = (slug: string) => {
+    const existingClicked = JSON.parse(
+      window.localStorage.getItem("clickProducts") || "[]"
+    );
+
+    const isProductHasClicked = existingClicked.includes(slug);
+
+    if (isProductHasClicked) {
+      // tidak lakukan apapun
+      return;
+    } else {
+      // Tambahkan barang ke storage jika belum ada di dalamnya
+      const updatedClicked = [...existingClicked, slug];
+
+      window.localStorage.setItem(
+        "clickProducts",
+        JSON.stringify(updatedClicked)
+      );
+    }
+  };
+
   return (
     <div
-      onClick={() => router.push(`/barang/${product.slug}`)}
+      onClick={() => {
+        handleTrack(product.slug);
+        router.push(`/barang/${product.slug}`);
+      }}
       className="rounded bg-white dark:bg-slate-900 dark:border border-slate-500 text-xs md:text-sm cursor-pointer"
     >
       <ImageProduct product={product} />
