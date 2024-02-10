@@ -11,7 +11,7 @@ const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
   const router = useRouter();
 
   return (
-    <div className="flex justify-between items-center sticky top-0 z-50 bg-slate-200 dark:bg-slate-900 p-2 md:p-4">
+    <div className="flex justify-between items-center sticky top-0 z-50 bg-slate-200 dark:bg-slate-900 p-2 md:p-4 select-none">
       {arrowBack && (
         <IoMdArrowBack
           onClick={() => router.back()}

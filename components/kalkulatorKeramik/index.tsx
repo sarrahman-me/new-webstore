@@ -40,7 +40,11 @@ const KalkulatorKeramik = ({ ukuranKeramik }: { ukuranKeramik: string }) => {
   return (
     <div className="space-y-2 border bg-white dark:bg-slate-800 rounded-md dark:border-slate-500 p-2 md:p-4">
       <p className="font-semibold underline">Hitung Keperluan keramik</p>
-      <form onSubmit={handleHitung} action="" className="space-y-3 md:space-y-5">
+      <form
+        onSubmit={handleHitung}
+        action=""
+        className="space-y-3 md:space-y-5"
+      >
         <Textfield
           onChange={(value) => setPanjang(value)}
           placeholder="Panjang Ruangan"
@@ -79,7 +83,7 @@ const ResultComp = ({ result }: { result: resultInterface }) => {
         Kebutuhan: {result.Kebutuhan} Dus
       </p>
       <p className="text-sm md:text-base font-medium">
-        Diameter Ruangan: {result.diameter_ruang} m<sup>2</sup>
+        Diameter Ruangan: {result.diameter_ruang.toFixed(2)} m<sup>2</sup>
       </p>
       <p className="text-sm md:text-base font-medium">
         Diameter Keramik: {result.diameter_keramik.toFixed(2)} m<sup>2</sup>
@@ -112,14 +116,22 @@ const Textfield = ({
   placeholder: string;
   onChange: (value: any) => void;
 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value); // Parse nilai sebagai float
+    onChange(isNaN(value) ? 0 : value); // Jika nilai tidak valid, gunakan 0
+  };
+
   return (
     <div>
       <input
-        onChange={(e: any) => onChange(e.target.value)}
+        onChange={handleChange}
         placeholder={placeholder}
         className="p-2 bg-white border-slate-600 dark:bg-slate-700 rounded-md border focus:ring-slate-500 focus:border-slate-500 outline-none w-full"
-        type="number"
+        type="text"
       />
+      <p className="text-xs text-gray-500">
+        Gunakan titik jika decimal misalnya 2.5
+      </p>
     </div>
   );
 };

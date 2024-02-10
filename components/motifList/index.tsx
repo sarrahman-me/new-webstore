@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 const MotifList = () => {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 select-none">
       <p className="font-semibold underline">Motif Populer</p>
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-2">
         <MotifIcon title="Marbel" icon={<GiMarbles />} slug={"Marble"} />

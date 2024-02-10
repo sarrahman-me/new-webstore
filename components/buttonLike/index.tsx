@@ -63,7 +63,7 @@ const ButtonLike = ({ slug }: { slug: string }) => {
         isLiked ? "bg-red-500 text-white" : " bg-white dark:bg-slate-800"
       } border rounded-full p-2 cursor-pointer`}
     >
-      <AiOutlineLike />
+      <AiOutlineLike className="md:text-xl" />
     </span>
   );
 };
