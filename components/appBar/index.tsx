@@ -7,7 +7,13 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setWishlistCount } from "@/redux/slice/wishlist";
 
-const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
+const AppBar = ({
+  arrowBack,
+  title,
+}: {
+  arrowBack?: boolean;
+  title?: string;
+}) => {
   const router = useRouter();
 
   return (
@@ -18,7 +24,11 @@ const AppBar = ({ arrowBack }: { arrowBack?: boolean }) => {
           className="cursor-pointer text-xl"
         />
       )}
-      <LogoCompany />
+      {title ? (
+        <p className="font-bold md:text-lg">{title}</p>
+      ) : (
+        <LogoCompany />
+      )}
       <div className="flex items-center space-x-2">
         <Searchbox />
         <LikeIcon />
@@ -72,9 +82,10 @@ const Searchbox = () => {
 };
 
 const LikeIcon = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const { wishlistCount } = useSelector((state: any) => state.wishlist);
-  
+
   useEffect(() => {
     const chechIsLiked = () => {
       const existingFavorites: string[] = JSON.parse(
@@ -88,7 +99,10 @@ const LikeIcon = () => {
   }, [dispatch]);
 
   return (
-    <div className="border border-slate-500 rounded-md bg-slate-50 dark:bg-slate-700 flex items-center p-1 space-x-1">
+    <div
+      onClick={() => router.push("/wishlist")}
+      className="border border-slate-500 rounded-md bg-slate-50 dark:bg-slate-700 flex items-center p-1 space-x-1 cursor-pointer"
+    >
       <AiOutlineLike className="text-xl md:text-2xl" />
       <span className="text-sm md:text-base">{wishlistCount || 0}</span>
     </div>

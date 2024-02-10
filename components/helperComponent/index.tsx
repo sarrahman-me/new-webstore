@@ -9,7 +9,7 @@ const HelperComponent = ({
   return (
     <div className="flex items-center justify-center">
       <div>
-        <p className="md:text-xl text-center font-bold">{title}</p>
+        <p className="md:text-lg text-center font-bold">{title}</p>
         <img src={imageUrl} alt="notfound" />
       </div>
     </div>
