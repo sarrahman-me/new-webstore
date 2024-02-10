@@ -8,6 +8,7 @@ import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { useRouter, useSearchParams } from "next/navigation";
 import metadataProduct from "@/interface/metadataProduct";
 import { useState } from "react";
+import HelperComponent from "../helperComponent";
 
 const CatalogProducts = ({
   pagination = true,
@@ -41,7 +42,12 @@ const CatalogProducts = ({
   }
 
   if (error) {
-    return <p>Error Fetch Products</p>;
+    return (
+      <HelperComponent
+        imageUrl="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/11104-removebg-preview.png"
+        title="Kesalahan Tak Terduga"
+      />
+    );
   }
 
   const products: productDTO[] = productReplace || data.data;
@@ -49,17 +55,10 @@ const CatalogProducts = ({
 
   if (products.length === 0) {
     return (
-      <div className="flex items-center justify-center">
-        <div>
-          <p className="md:text-xl text-center font-bold">
-            Produk Tidak Ditemukan
-          </p>
-          <img
-            src="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/9169253-removebg-preview.png"
-            alt="notfound"
-          />
-        </div>
-      </div>
+      <HelperComponent
+        imageUrl="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/9169253-removebg-preview.png"
+        title="Produk Tidak Ditemukan"
+      />
     );
   }
 

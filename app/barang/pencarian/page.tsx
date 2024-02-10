@@ -1,5 +1,10 @@
 "use client";
-import { AppBar, CatalogProducts, SearchBar } from "@/components";
+import {
+  AppBar,
+  CatalogProducts,
+  HelperComponent,
+  SearchBar,
+} from "@/components";
 import productDTO from "@/interface/product";
 import { fetcher } from "@/utils";
 import { useSearchParams } from "next/navigation";
@@ -18,7 +23,12 @@ export default function Pencarian() {
   }
 
   if (error) {
-    return <p>Error Fetch Products</p>;
+    return (
+      <HelperComponent
+        imageUrl="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/11104-removebg-preview.png"
+        title="Kesalahan Tak Terduga"
+      />
+    );
   }
 
   const products: productDTO[] = data.data;

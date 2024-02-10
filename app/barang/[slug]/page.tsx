@@ -5,6 +5,7 @@ import {
   AppBar,
   CatalogProducts,
   DetailProduct,
+  HelperComponent,
   KalkulatorKeramik,
   KeramikPattern,
   SearchBar,
@@ -28,7 +29,12 @@ export default function DetailProductPage({
   }
 
   if (error) {
-    return <p>Error Fetch Products</p>;
+    return (
+      <HelperComponent
+        imageUrl="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/11104-removebg-preview.png"
+        title="Kesalahan Tak Terduga"
+      />
+    );
   }
 
   const products: productDTO = data.data;
