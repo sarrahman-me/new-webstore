@@ -1,5 +1,5 @@
 "use client";
-import { AppBar, CatalogProducts, SearchBar } from "@/components";
+import { AppBar, CatalogProducts, Footer, SearchBar } from "@/components";
 import { useSearchParams } from "next/navigation";
 
 export default function Filter() {
@@ -12,11 +12,12 @@ export default function Filter() {
       <AppBar arrowBack />
       <div className="p-2 md:p-4 space-y-6 md:space-y-10">
         <SearchBar />
-        <CatalogProducts title={`Produk ${motif} ${area}`} atribut={`motif=${motif}&area=${area}`} />
+        <CatalogProducts
+          title={`Produk ${motif} ${area}`}
+          atribut={`motif=${motif}&area=${area}`}
+        />
       </div>
-      <div className="text-center text-xs text-slate-500 py-10">
-        <p>Disupport oleh Toko Keramik Indonesia</p>
-      </div>
+      <Footer />
     </main>
   );
 }

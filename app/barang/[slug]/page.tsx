@@ -5,6 +5,7 @@ import {
   AppBar,
   CatalogProducts,
   DetailProduct,
+  Footer,
   HelperComponent,
   KalkulatorKeramik,
   KeramikPattern,
@@ -82,9 +83,7 @@ export default function DetailProductPage({
           atribut={`kategori=${products.kategori}&ukuran=${products.ukuran}&motif=${products.motif}&tekstur=${products.tekstur}`}
         />
       </div>
-      <div className="text-center text-xs text-slate-500 py-10">
-        <p>Disupport oleh Toko Keramik Indonesia</p>
-      </div>
+      <Footer />
     </main>
   );
 }

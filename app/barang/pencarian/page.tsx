@@ -2,6 +2,7 @@
 import {
   AppBar,
   CatalogProducts,
+  Footer,
   HelperComponent,
   SearchBar,
 } from "@/components";
@@ -44,9 +45,7 @@ export default function Pencarian() {
           title={`Pencarian ${query}`}
         />
       </div>
-      <div className="text-center text-xs text-slate-500 py-10">
-        <p>Disupport oleh Toko Keramik Indonesia</p>
-      </div>
+      <Footer />
     </main>
   );
 }
