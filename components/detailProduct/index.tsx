@@ -38,22 +38,15 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
           Kualitas: {product.kualitas}
         </p>
         <div className="flex justify-between items-center">
-          <span className="my-1 ">
-            {product.tag && (
-              <p className="text-xs p-1 border rounded-full inline bg-slate-500 text-white ">
-                {product.tag}
-              </p>
-            )}
-          </span>
+          <p className="text-xs text-orange-500">
+            <sup>*</sup> Stok dapat berubah setiap saat
+          </p>
           <ButtonReportProduct product={product} />
         </div>
-        <div className="flex justify-between items-center">
+        <div className="my-10 flex justify-between items-center">
           <ShareButton slug={product.slug} />
           <ButtonLike slug={product.slug} />
         </div>
-        <p className="text-xs text-orange-500">
-          <sup>*</sup> Stok dapat berubah setiap saat
-        </p>
       </div>
     </div>
   );

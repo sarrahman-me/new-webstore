@@ -1,5 +1,11 @@
 "use client";
-import { AppBar, CatalogProducts, Footer, SearchBar } from "@/components";
+import {
+  AppBar,
+  CatalogProducts,
+  FilterProducts,
+  Footer,
+  SearchBar,
+} from "@/components";
 import { useSearchParams } from "next/navigation";
 
 export default function Filter() {
@@ -10,8 +16,9 @@ export default function Filter() {
   return (
     <main>
       <AppBar arrowBack />
-      <div className="p-2 md:p-4 space-y-6 md:space-y-10">
+      <div className="p-2 md:p-4 space-y-4 md:space-y-6">
         <SearchBar />
+        <FilterProducts />
         <CatalogProducts
           title={`Produk ${motif} ${area}`}
           atribut={`motif=${motif}&area=${area}`}

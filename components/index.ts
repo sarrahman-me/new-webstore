@@ -3,6 +3,7 @@ import AppBar from "./appBar";
 import ButtonReportProduct from "./buttonReportProduct";
 import CatalogProducts from "./catalogProducts";
 import DetailProduct from "./detailProduct";
+import FilterProducts from "./filterProduct";
 import Footer from "./footer";
 import HelperComponent from "./helperComponent";
 import KalkulatorKeramik from "./kalkulatorKeramik";
@@ -26,4 +27,5 @@ export {
   ButtonReportProduct,
   ShareButton,
   Footer,
+  FilterProducts,
 };

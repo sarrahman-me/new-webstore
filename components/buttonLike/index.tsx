@@ -61,7 +61,7 @@ const ButtonLike = ({ slug }: { slug: string }) => {
       title="Suka"
       onClick={handleLike}
       className={`${
-        isLiked ? "bg-red-500 text-white" : " bg-white dark:bg-slate-800"
+        isLiked ? "bg-slate-500 text-white" : " bg-white dark:bg-slate-800"
       } border rounded-full p-2 cursor-pointer`}
     >
       <AiOutlineLike className="text-lg md:text-xl" />
