@@ -31,9 +31,14 @@ const CatalogProducts = ({
   hiddenIfNotFound?: boolean;
 }) => {
   const params = useSearchParams();
+
   let page = params.get("page") || 1;
   const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_HOST}/products/barang?page=${page}&limit=${limit}&minstok=${minstok}&${atribut}`,
+    `${
+      process.env.NEXT_PUBLIC_HOST
+    }/products/barang?page=${page}&limit=${limit}&${atribut}${
+      minstok === 0 ? "" : `&minstok=${minstok}`
+    }`,
     fetcher
   );
 
