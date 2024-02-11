@@ -53,7 +53,7 @@ const CatalogProducts = ({
   const products: productDTO[] = productReplace || data.data;
   const metadata: metadataProduct = data.metadata;
 
-  if (products.length === 0) {
+  if (products.length === 0 && !hiddenIfNotFound) {
     return (
       <HelperComponent
         imageUrl="https://tokokeramik-assets.s3.ap-southeast-1.amazonaws.com/9169253-removebg-preview.png"
