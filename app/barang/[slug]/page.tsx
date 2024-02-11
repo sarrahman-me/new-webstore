@@ -65,6 +65,7 @@ export default function DetailProductPage({
         {/* catalog produk warna lainnya */}
         <CatalogProducts
           minstok={0}
+          hiddenInLimit={1}
           hiddenIfNotFound
           title="Warna Lainnya"
           pagination={false}
