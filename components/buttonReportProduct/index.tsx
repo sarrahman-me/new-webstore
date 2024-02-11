@@ -43,7 +43,7 @@ const ButtonReportProduct = ({ product }: { product: productDTO }) => {
       title="Laporkan Kesalahan Data"
       className={`bg-white dark:bg-slate-800 border rounded-full p-2 cursor-pointer`}
     >
-      <MdOutlineReportProblem className="md:text-xl" />
+      <MdOutlineReportProblem className="text-lg md:text-xl" />
     </span>
   );
 };

@@ -9,7 +9,7 @@ export default function KeramikPattern({ imageUrl }: { imageUrl: string }) {
 
   return (
     <div className="border bg-white dark:bg-slate-800 rounded-md dark:border-slate-500 p-2 md:p-4">
-      <p className="font-semibold underline">Keramik Pattern</p>
+      <p className="font-semibold underline">Simulasi Pola</p>
       <div className="w-full grid m-1 relative object-cover" style={gridStyles}>
         <ImagePattern imageUrl={imageUrl} />
         <ImagePattern imageUrl={imageUrl} />

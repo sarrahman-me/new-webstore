@@ -8,6 +8,7 @@ import KalkulatorKeramik from "./kalkulatorKeramik";
 import KeramikPattern from "./keramikPattern";
 import MotifList from "./motifList";
 import SearchBar from "./searchBar";
+import ShareButton from "./shareButtons";
 import ToggleDarkMode from "./toogleDarkMode";
 
 export {
@@ -22,4 +23,5 @@ export {
   HelperComponent,
   KalkulatorKeramik,
   ButtonReportProduct,
+  ShareButton,
 };

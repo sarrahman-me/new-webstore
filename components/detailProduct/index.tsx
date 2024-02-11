@@ -1,6 +1,6 @@
 import productDTO from "@/interface/product";
 import ButtonLike from "../buttonLike";
-import { ButtonReportProduct } from "..";
+import { ButtonReportProduct, ShareButton } from "..";
 
 /* eslint-disable @next/next/no-img-element */
 const DetailProduct = ({ product }: { product: productDTO }) => {
@@ -48,11 +48,12 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
           <ButtonReportProduct product={product} />
         </div>
         <div className="flex justify-between items-center">
-          <p className="text-xs text-orange-500">
-            <sup>*</sup> Stok dapat berubah setiap saat
-          </p>
+          <ShareButton slug={product.slug} />
           <ButtonLike slug={product.slug} />
         </div>
+        <p className="text-xs text-orange-500">
+          <sup>*</sup> Stok dapat berubah setiap saat
+        </p>
       </div>
     </div>
   );
