@@ -65,7 +65,7 @@ const CatalogProducts = ({
   return (
     <div
       className={`space-y-2 ${
-        products.length < hiddenInLimit && hiddenIfNotFound ? "hidden" : ""
+        products.length <= hiddenInLimit && hiddenIfNotFound ? "hidden" : ""
       }`}
     >
       <p className="font-semibold underline">{title || "Semua Barang"}</p>
