@@ -58,6 +58,7 @@ const ButtonLike = ({ slug }: { slug: string }) => {
 
   return (
     <span
+      title="Suka"
       onClick={handleLike}
       className={`${
         isLiked ? "bg-red-500 text-white" : " bg-white dark:bg-slate-800"

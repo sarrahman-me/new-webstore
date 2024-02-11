@@ -1,5 +1,6 @@
 import productDTO from "@/interface/product";
 import ButtonLike from "../buttonLike";
+import { ButtonReportProduct } from "..";
 
 /* eslint-disable @next/next/no-img-element */
 const DetailProduct = ({ product }: { product: productDTO }) => {
@@ -16,7 +17,7 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
           {product.warna?.replace(/\([^)]*\)/g, "").trim()}
         </p>
         <p className="text-sm md:text-base font-medium">
-          Stok: {product.stok} Dus <sup>*</sup>
+          Stok: {product.stok} Dus <sup className="text-orange-500">*</sup>
         </p>
         <p className="text-sm md:text-base font-medium">
           Brand: {product.brand}
@@ -36,6 +37,16 @@ const DetailProduct = ({ product }: { product: productDTO }) => {
         <p className="text-sm md:text-base font-medium">
           Kualitas: {product.kualitas}
         </p>
+        <div className="flex justify-between items-center">
+          <span className="my-1 ">
+            {product.tag && (
+              <p className="text-xs p-1 border rounded-full inline bg-slate-500 text-white ">
+                {product.tag}
+              </p>
+            )}
+          </span>
+          <ButtonReportProduct product={product} />
+        </div>
         <div className="flex justify-between items-center">
           <p className="text-xs text-orange-500">
             <sup>*</sup> Stok dapat berubah setiap saat

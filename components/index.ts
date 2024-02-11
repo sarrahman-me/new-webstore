@@ -1,5 +1,6 @@
 import AreaList from "./AreaList";
 import AppBar from "./appBar";
+import ButtonReportProduct from "./buttonReportProduct";
 import CatalogProducts from "./catalogProducts";
 import DetailProduct from "./detailProduct";
 import HelperComponent from "./helperComponent";
@@ -20,4 +21,5 @@ export {
   KeramikPattern,
   HelperComponent,
   KalkulatorKeramik,
+  ButtonReportProduct,
 };
