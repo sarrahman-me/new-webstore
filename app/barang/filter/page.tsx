@@ -12,6 +12,9 @@ export default function Filter() {
   const params = useSearchParams();
   let motif = params.get("motif") || "";
   let area = params.get("area") || "";
+  let ukuran = params.get("ukuran") || "";
+  let kategori = params.get("kategori") || "";
+  let tekstur = params.get("tekstur") || "";
 
   return (
     <main>
@@ -20,8 +23,8 @@ export default function Filter() {
         <SearchBar />
         <FilterProducts />
         <CatalogProducts
-          title={`Produk ${motif} ${area}`}
-          atribut={`motif=${motif}&area=${area}`}
+          title={`Produk ${kategori} ${motif} ${ukuran} ${tekstur}`}
+          atribut={`kategori=${kategori}&ukuran=${ukuran}&motif=${motif}&tekstur=${tekstur}&area=${area}`}
         />
       </div>
       <Footer />
