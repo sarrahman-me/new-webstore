@@ -51,7 +51,7 @@ const FilterProducts = () => {
 
       {
         <div
-          className={`space-y-10 bg-white fixed top-0 right-0 z-50 h-screen transition duration-700 ease-in-out  ${
+          className={`space-y-10 bg-white dark:bg-slate-800 fixed top-0 right-0 z-50 h-screen transition duration-700 ease-in-out  ${
             openFilter ? "w-full md:w-96 lg:w-1/3 p-4 md:p-7" : "hidden w-0"
           }`}
         >
@@ -98,7 +98,19 @@ const FilterProducts = () => {
 
           {/* tombol aksi */}
           <div className="flex justify-evenly items-center my-3">
-            <button className="border p-1 px-2 rounded-md">Reset</button>
+            <button
+              onClick={() => {
+                router.push(`/barang/filter`);
+                setOpen(false);
+                setKategori("");
+                setMotif("");
+                setUkuran("");
+                setTekstur("");
+              }}
+              className="border p-1 px-2 rounded-md"
+            >
+              Reset
+            </button>
             <button
               onClick={() => {
                 router.push(
@@ -145,8 +157,8 @@ const RadioComp = ({
               <span
                 className={
                   checked
-                    ? "bg-slate-500 text-white p-1 rounded-full border"
-                    : "p-1 rounded-full"
+                    ? "bg-slate-500 text-white p-1 rounded-full border cursor-pointer"
+                    : "p-1 cursor-pointer"
                 }
               >
                 {opt}
